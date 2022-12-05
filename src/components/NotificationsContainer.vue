@@ -88,7 +88,8 @@ export default {
   background: white;
   box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.10);
   border-radius: .5rem;
-  width: 575px;
+  max-width: 575px;
+  min-width: 350px;
   padding-inline: 1.5rem;
 }
 </style>

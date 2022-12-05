@@ -75,7 +75,7 @@ export default {
     padding-inline: 1rem;
     padding-block: .5rem;
     max-width: 460px;
-    margin-left: auto;
+    margin-left: 63px;
     font-size: .8rem;
 
     position: relative;
