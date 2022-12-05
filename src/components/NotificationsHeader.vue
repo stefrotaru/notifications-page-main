@@ -36,11 +36,14 @@ export default ({
 
 .header__counter {
     margin-inline-start: .5rem;
-    border: 1px solid black;
-
+    padding: .1rem .5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(219, 85%, 26%);
+    color: white;
 }
 
 .header__btn {
-    
+    color: hsl(219, 12%, 42%);
 }
 </style>

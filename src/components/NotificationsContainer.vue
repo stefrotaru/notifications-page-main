@@ -20,42 +20,56 @@ export default {
         "profilePic": "avatar-mark-webber.webp",
         "interaction": "react",
         "interactionTarget": "My first tournament today!",
+        "timeStamp": "1m ago",
+        "seen": false,
         },
         {
         "name": "Angela Gray",
         "profilePic": "avatar-angela-gray.webp",
         "interaction": "follow",
         "interactionTarget": "",
+        "timeStamp": "5m ago",
+        "seen": false,
         },
         {
         "name": "Jacob Thompson",
         "profilePic": "avatar-jacob-thompson.webp",
         "interaction": "joined",
-        "interactionTarget": "My first tournament today!",
+        "interactionTarget": "Chess Club",
+        "timeStamp": "1 day ago",
+        "seen": false,
         },
         {
         "name": "Rizky Hasanuddin",
         "profilePic": "avatar-rizky-hasanuddin.webp",
         "interaction": "message",
         "interactionTarget": "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
+        "timeStamp": "5 days ago",
+        "seen": true,
         },
         {
         "name": "Kimberly Smith",
         "profilePic": "avatar-kimberly-smith.webp",
         "interaction": "comment",
         "interactionTarget": "image-chess.webp",
+        "timeStamp": "1 week ago",
+        "seen": true,
         },
         {
         "name": "Nathan Peterson",
         "profilePic": "avatar-nathan-peterson.webp",
         "interaction": "react",
         "interactionTarget": "5 end-game strategies to increase your win rate",
+        "timeStamp": "2 weeks ago",
+        "seen": true,
         },
         {
         "name": "Anna Kim",
         "profilePic": "avatar-anna-kim.webp",
         "interaction": "leave",
         "interactionTarget": "Chess Club",
+        "timeStamp": "2 weeks ago",
+        "seen": true,
         },
       ]
     }
@@ -71,9 +85,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
-  border: 1px solid black;
+  background: white;
+  box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.10);
+  /* border: 1px solid black; */
   border-radius: .5rem;
-  width: 700px;
-  padding: 1rem;
+  width: 565px;
+  padding-top: .5rem;
+  padding-inline: 1.5rem;
 }
 </style>

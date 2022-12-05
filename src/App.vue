@@ -16,12 +16,19 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #app {
-  height: 100%;
+  height: 100vh;
   font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  background: hsl(210, 60%, 98%);
+  /* text-align: center; */
 
   display: flex;
   flex-direction: column;
