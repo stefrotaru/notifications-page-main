@@ -2,18 +2,34 @@
     <div class="header">
         <div class="title-wrapper">
             <h1 class="header__title">Notifications</h1>
-            <span class="header__counter">{{notificationsNo}}</span>
+            <span v-if="(notificationsNo > 0)" class="header__counter">{{notificationsNo}}</span>
         </div>
-        <a class="header__btn">Mark all as read</a>
+        <a class="header__btn" @click="this.markAsSeen()">Mark all as read</a>
     </div>
 </template>
 
 <script>
-// import { defineComponent } from '@vue/composition-api'
-
 export default ({
     name: 'NotificationsHeader',
-    props: ['notificationsNo']
+    data() {
+        return {
+            childIsSeen: false,
+            childNotificationsNo: 3,
+        }
+    },
+    created() {
+        this.childIsSeen = this.isSeen;
+        this.childNotificationsNo = this.notificationsNo;
+    },
+    methods: {
+        markAsSeen() {
+            this.childIsSeen = true;
+            this.childNotificationsNo = 0;
+            this.$emit('update:isSeen', this.childIsSeen);
+            this.$emit('update:notificationsNo', this.childNotificationsNo);
+        }
+    },
+    props: ['notificationsNo', 'isSeen']
 })
 </script>
 
@@ -21,12 +37,11 @@ export default ({
 .header {
     display: flex;
     align-items: center;
-    /* flex-wrap: wrap; */
     justify-content: space-between;
+    padding-block: 1.5rem;
 }
 .title-wrapper {
     display: flex;
-    /* flex-direction: row; */
     align-items: center;
 }
 
@@ -45,5 +60,9 @@ export default ({
 
 .header__btn {
     color: hsl(219, 12%, 42%);
+}
+.header__btn:hover {
+    color: hsl(219, 85%, 26%);
+    cursor: pointer;
 }
 </style>

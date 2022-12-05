@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <NotificationsHeader v-bind:notificationsNo="notificationsNo"/>
-    <NotificationCard v-for="user in users" :key="user" v-bind:user="user"/>
+    <NotificationsHeader v-model:isSeen="isSeen" v-model:notificationsNo="notificationsNo"/>
+    <NotificationCard v-for="user in users" :key="user" v-bind:user="user" v-bind:isSeen="isSeen"/>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
   name: 'NotificationsContainer',
   data() {
     return {
+      isSeen: false,
       notificationsNo: 3,
       users: [
         {
@@ -82,15 +83,12 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
   background: white;
   box-shadow: 0px 0px 11px 5px rgba(0,0,0,0.10);
-  /* border: 1px solid black; */
   border-radius: .5rem;
-  width: 565px;
-  padding-top: .5rem;
+  width: 575px;
   padding-inline: 1.5rem;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-    <div class="card" v-bind:class = "(user.seen)?'seen':'unseen'">
+    <div class="card" v-bind:class = "(user.seen || this.isSeen)?'seen':'unseen'">
         <div class="card__default">
             <img class="profile_pic" :src="require('@/assets/images/' + user.profilePic)" alt="asd">
             <div class="card__text">
-                <p v-bind:class = "(user.seen)?'':'unseen-bubble'">
+                <p v-bind:class = "(user.seen || this.isSeen)?'':'unseen-bubble'">
                     <span class="user_name">{{user.name}}</span> &nbsp;  
                     <span v-if="user.interaction == 'react'">reacted to your recent post <span class="highlight-post">{{user.interactionTarget}}</span></span>
                     <span v-if="user.interaction == 'follow'">followed you</span>
@@ -27,7 +27,7 @@
 <script>
 export default {
     name: 'NotificationCard',
-    props: ['user'],
+    props: ['user', 'isSeen'],
     methods: {},
     beforeMount() {}
 }
@@ -37,49 +37,60 @@ export default {
 .card {
     color: hsl(219, 12%, 42%);
 }
+
 .card__default {
-    /* border: 1px solid grey; */
     border-radius: 10px;
     overflow: hidden;
-    padding-inline: .7rem;
+    padding: 1rem;
     margin-bottom: .5rem;
 
     display: flex;
-    /* align-items: center; */
 }
+
 .profile_pic {
     height: 2.2rem;
     padding-right: .7rem;
-    position: relative;
-    top: .75rem;
 }
+
 .card__text {
     font-size: .8rem;
 }
+
 .user_name {
     font-weight: 800;
     color: black;
 }
+.user_name:hover {
+    color: hsl(219, 85%, 26%);
+    cursor: pointer;
+}
+
 .card__timeStamp {
     font-size: .6rem;
-    position: relative;
-    bottom: 15px;
 }
+
 .prv_msg {
     border: 1px solid hsl(205, 33%, 90%);
     border-radius: 4px;
     padding-inline: 1rem;
-    margin-bottom: 1rem;
+    padding-block: .5rem;
     max-width: 460px;
     margin-left: auto;
     font-size: .8rem;
+
+    position: relative;
+    bottom: 1rem;
 }
-
-
+.prv_msg:hover {
+    background: hsl(211, 68%, 94%);
+    cursor: pointer;
+}
 
 .unseen {
     background: hsl(210, 60%, 98%);
-    border-radius: 10px;
+}
+.seen {
+    background: white;
 }
 .unseen-bubble::after {
     content: "";
@@ -98,12 +109,22 @@ export default {
     margin-left: auto;
     align-self: center;
 }
+.commented-picture:hover {
+    cursor: pointer;
+}
 
 .highlight-post {
     font-weight: 800;
 }
+.highlight-post:hover {
+    color: hsl(219, 85%, 26%);
+    cursor: pointer;
+}
 .highlight-group {
     font-weight: 800;
     color: hsl(219, 85%, 26%);
+}
+.highlight-group:hover {
+    cursor: pointer;
 }
 </style>

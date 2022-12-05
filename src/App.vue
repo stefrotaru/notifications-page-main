@@ -20,6 +20,8 @@ export default {
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 #app {
@@ -28,7 +30,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: hsl(210, 60%, 98%);
-  /* text-align: center; */
 
   display: flex;
   flex-direction: column;
